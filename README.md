@@ -7,16 +7,12 @@ TEST
 
 
 <details>
-  <summary>👉 클릭해서 기능 설명 보기</summary>
+  <summary>👉 부하테스트 모니터링 지표 /summary>
 
-  ### 주요 기능
-  - 사용자 로그인 및 회원가입
-  - 상품 검색 및 장바구니
-  - 주문 결제 및 배송 추적
+Ready 파드 : 클러스터 전체에서 Ready 상태인 파드 수의 합계
+  sum(kube_pod_status_ready{condition="true"})
 
-  ### 추가 기능
-  - 관리자 대시보드
-  - 통계 및 리포트 생성
-  - 다국어 지원
-
+Ready 노드 : 실제로 노드를 몇 개까지 늘렸는지 확인하는 지표
+  sum(kube_node_status_condition{condition="Ready", status="true"})
 </details>
+
